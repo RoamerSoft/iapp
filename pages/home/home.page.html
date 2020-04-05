@@ -1,0 +1,41 @@
+<ion-header>
+</ion-header>
+<ion-content padding class="homepage">
+  <ion-grid>
+    <ion-row>
+      <ion-fab class="backArrowButton" *ngIf="showParticipantQuestionComponent" (click)="onBackArrowClick()">
+        <ion-icon src="assets/icon/md-arrow-round-back.svg" size="large"></ion-icon>
+      </ion-fab>
+      <ion-col size="12">
+        <img class="logo" src="assets/img/logo.svg"/>
+      </ion-col>
+    </ion-row>
+
+    <app-quote class="verticalCenter"
+               *ngIf="!showMultipleChoiceQuestionComponent &&
+               !showParticipantQuestionComponent &&
+               !showAnswerFeedbackComponent"></app-quote>
+
+    <app-multiple-choice-question *ngIf="showMultipleChoiceQuestionComponent"
+                                  [multipleChoiceQuestion]="interactionQuestion"
+                                  [interactionQuestionHost]="interactionQuestionHost"></app-multiple-choice-question>
+
+    <app-answer-feedback *ngIf="showAnswerFeedbackComponent &&
+                         !showMultipleChoiceQuestionComponent &&
+                         !showParticipantQuestionComponent"
+                         [givenAnswerIsCorrect]="interactionQuestionAnswerIsCorrect"
+                         [correctAnswer]="correctAnswer"></app-answer-feedback>
+
+    <app-participant-question *ngIf="showParticipantQuestionComponent" [participantQuestionHost]="participantQuestionHost"></app-participant-question>
+
+  </ion-grid>
+</ion-content>
+
+<ion-footer *ngIf="!showParticipantQuestionComponent && !showMultipleChoiceQuestionComponent">
+  <ion-toolbar>
+    <ion-button #ionButton
+                expand="block" (click)="onParticipantQuestionButtonClick()">
+      <img class="question_icon" src="assets/icon/question_icon.svg"/>Stel een vraag aan de presentator
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

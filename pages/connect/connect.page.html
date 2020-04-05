@@ -1,0 +1,20 @@
+<ion-header>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <img class="logo" src="assets/img/logo.svg"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item  class="input">
+          <ion-input #ionInput [(ngModel)]="sessionCode" placeholder="Voer de sessiecode in..." autofocus maxlength="5"></ion-input>
+          <ion-spinner *ngIf="showSpinner" color="secondary"></ion-spinner>
+        </ion-item>
+        <ion-button #ionButton expand="block" text-capitalize (click)="connectToSession()">Verbinden</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

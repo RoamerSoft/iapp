@@ -1,0 +1,31 @@
+<div *ngIf="givenAnswerIsCorrect">
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-icon src="assets/icon/md-checkmark-circle.svg" #checkmarkIcon color="success"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <h2>{{correctAnswerTitle}}</h2>
+      <h5>{{correctAnswerText}}</h5>
+      <h3 class="correctAnswer">{{correctAnswer}}</h3>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="!givenAnswerIsCorrect">
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-icon src="assets/icon/md-close-circle.svg" #closeIcon color="danger"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <h2>{{wrongAnswerTitle}}</h2>
+      <h5>{{wrongAnswerText}}</h5>
+      <h3 class="correctAnswer">{{correctAnswer}}</h3>
+    </ion-col>
+  </ion-row>
+</div>

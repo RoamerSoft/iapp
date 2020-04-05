@@ -1,0 +1,30 @@
+<ion-row>
+  <ion-col class="ion-text-center">
+    <h1>Beantwoord de vraag</h1>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col>
+    <app-progress-bar #progressBar [hostComponent]="progressBarHost"></app-progress-bar>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col class="ion-text-center">
+    <h3>{{ multipleChoiceQuestion.question }}</h3>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col class="ion-text-center">
+    <ion-list>
+      <ion-radio-group (ionChange)="setAnswer($event)">
+        <ion-item *ngFor="let answer of multipleChoiceQuestion.answers | keyvalue">
+          <ion-label>{{ answer.value }}</ion-label>
+          <ion-radio value="{{ answer.key }}" slot="start"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-col>
+</ion-row>

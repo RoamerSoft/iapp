@@ -1,0 +1,27 @@
+<ion-row>
+  <ion-col class="ion-text-center">
+    <h2>Stel een vraag aan de presentator</h2>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-input #ionInputName [(ngModel)]="participantName" placeholder="Voer uw naam in..." required
+             autocapitalize="sentences"></ion-input>
+</ion-row>
+
+<ion-row>
+  <ion-input #ionInputRole [(ngModel)]="participantFunction" placeholder="Voer uw functie/rol in..."
+             autocapitalize="sentences"></ion-input>
+</ion-row>
+
+<ion-row>
+  <ion-textarea #ionTextAreaQuestion [(ngModel)]="participantQuestion" placeholder="Type uw vraag..." required
+                autocapitalize="sentences"></ion-textarea>
+</ion-row>
+
+<ion-row class="stickToBottom">
+  <ion-button #ionButtonSend type="submit" (click)="onSendButtonClick()">
+    Versturen
+  </ion-button>
+</ion-row>
+
